@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(12, 12, 172);
+}
+header{ 
+     height:60px;
+     color:white;
+     font-size: 25px;
+
+}
+header h1{
+   padding: 10px;
+   padding-left: 40px;
+}
+.content{
+    display: flex;
+    justify-content: space-evenly ;
+    margin-top: 40px;
+}
+.img{
+    height:250px; 
+    width:250px;  
+    border-radius: 50%;
+    border:3px solid black;
+}
+.head{
+    margin-top:50px;
+    justify-content: center;
+    align-items:center ;
+    display: flex;
+}
+hr{
+    height: 1px;
+    width:300px;
+}
+    
+
+.box{
+    display:flex;
+    margin-top:30px;
+    justify-content: space-evenly;
+}
+.box1{
+    height: 150px;
+    width:150px;
+    border:2px solid rgb(68, 0, 255);
+    background-color: bisque;
+  
+    border-radius: 2px;
+    
+}
+.box1:hover{
+   transform: scale(1.01);
+   transition: all 1s ease-out;
+    box-shadow: 15px 13px 12px grey;
+}
+.box1 h2{
+    text-align: center;
+   margin-top:35px;
+}
+.food{
+    margin-top: 52px;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.food h1{
+    color:white;
+}
+.sub{
+    margin-top:30px;
+
+}
+.sub h2{
+    color:white;
+    font-size: 30px;
+}
+.sub p{
+    color:white;
+    margin-top: 15px;
+}
+.text{
+    color: white;
+    font-size: 25px;
+    margin-left:2px ;
+    margin-right: 2px;
+}
