@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <div class="max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-md mt-10">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Student Search</h1>
+
+        <!-- Search input and radio buttons -->
+        <div class="flex flex-col space-y-4">
+            <div class="flex justify-between items-center">
+                <input type="text" id="student" placeholder="Search here..." onkeyup="serach()"
+                    class="w-full p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <div class="flex space-x-4">
+                <label class="flex items-center">
+                    <input type="radio" onclick="filtersearch(1)" name="choice" value="1" class="mr-2">
+                    <span class="text-gray-700">Name</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" onclick="filtersearch(2)" name="choice" value="2" class="mr-2">
+                    <span class="text-gray-700">Surname</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" onclick="filtersearch(3)" name="choice" value="3" class="mr-2">
+                    <span class="text-gray-700">Age</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="radio" onclick="filtersearch(4)" name="choice" value="4" class="mr-2">
+                    <span class="text-gray-700">City</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Display List -->
+        <ul id="list" class="mt-8 space-y-4">
+            <!-- List items will be inserted here dynamically -->
+        </ul>
+    </div>
+
+    <script>
+        var student = [
+            { name: "ram", surname: "sharma", age: 20, city: "jaipur" },
+            { name: "shyam", surname: "sharma", age: 21, city: "ajmer" },
+            { name: "mohan", surname: "sharma", age: 22, city: "kota" },
+            { name: "sohan", surname: "sharma", age: 23, city: "jodhpur" },
+            { name: "rohan", surname: "sharma", age: 24, city: "bikaner" }
+        ];
+
+        var list = document.getElementById("list");
+        var cheak = 1;
+
+        function filtersearch(cheakvalue) {
+            cheak = cheakvalue;
+        }
+
+        show(student);
+
+        function serach() {
+            var input = document.getElementById("student").value.toUpperCase();
+            var modified = student.filter((student) => {
+                if (cheak == 1) {
+                    return student.name.toUpperCase().startsWith(input);
+                }
+                if (cheak == 2) {
+                    return student.surname.toUpperCase().startsWith(input);
+                }
+                if (cheak == 3) {
+                    return student.age == input;
+                }
+                if (cheak == 4) {
+                    return student.city.toUpperCase().startsWith(input);
+                }
+                return true;
+            });
+            show(modified);
+        }
+
+        function show(mod) {
+            list.innerHTML = mod.map((a) =>
+                `<li class="p-4 bg-gray-50 rounded-lg shadow-md hover:bg-gray-200">
+                    <h2 class="text-xl font-semibold text-gray-800">Name: ${a.name}</h2>
+                    <h3 class="text-lg text-gray-600">Surname: ${a.surname}</h3>
+                    <h3 class="text-lg text-gray-600">Age: ${a.age}</h3>
+                    <h4 class="text-md text-gray-500">City: ${a.city}</h4>
+                </li>`
+            ).join("");
+        }
+    </script>
+
+</body>
+
+</html>

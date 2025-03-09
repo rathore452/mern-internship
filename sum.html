@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body class="bg-gray-200">
+    <div class="flex h-screen justify-center items-center">
+    <div class="h-96 w-96 border-2 rounded-2xl bg-white shadow-2xl shadow-gray-800">
+        <div class="flex justify-center mt-6">
+            <h1 class="text-3xl font-bold"> Simple Calculater</h1>
+        </div>
+<div class="flex justify-evenly mt-10">
+
+    <input id="num1" class="border-2 h-8 w-32 rounded-2xl " type="text">
+    <input id="num2" class="border-2 h-8 w-32 rounded-2xl " type="text">
+</div>
+<div class="mt-8 flex justify-evenly">
+
+    <button onclick="add()" class="h-12 w-12 rounded-2xl  border-1 bg-gray-600 font-bold text-xl text-white">+</button>
+    <button onclick="sub()" class="h-12 w-12 rounded-2xl  border-1 bg-gray-600 font-bold text-xl text-white">-</button>
+    <button onclick="multi()" class="h-12 w-12 rounded-2xl  border-1 bg-gray-600 font-bold text-xl text-white">*</button>
+    <button onclick="dive()" class="h-12 w-12 rounded-2xl  border-1 bg-gray-600 font-bold text-xl text-white">/</button>
+</div>
+<div class="h-12 w-64 border-2 border-black mt-8 rounded-2xl ml-14 ">
+<h1 id="sum" class="text-2xl text-teal-900 text-center"></h1>
+</div>
+    </div>
+    </div>
+    <script>
+        function sub(){
+            let num1,num2,diff;
+            num1=document.getElementById("num1")
+            num2=document.getElementById("num2")
+            diff=document.getElementById("sum")
+            diff.innerHTML=parseInt(num1.value)-parseInt(num2.value)
+
+        }
+       function add()  {
+        let num1,num2,sum;
+        num1=document.getElementById("num1")
+        num2=document.getElementById("num2")
+        sum=document.getElementById("sum")
+        sum.innerHTML=parseInt(num1.value)+parseInt(num2.value) 
+
+        }
+        function multi()  {
+        let num1,num2,sum;
+        num1=document.getElementById("num1")
+        num2=document.getElementById("num2")
+        sum=document.getElementById("sum")
+        sum.innerHTML=parseInt(num1.value)*parseInt(num2.value) 
+
+        }
+        function dive()  {
+        let num1,num2,sum;
+        num1=document.getElementById("num1")
+        num2=document.getElementById("num2")
+        sum=document.getElementById("sum")
+        sum.innerHTML=parseInt(num1.value)/parseInt(num2.value) 
+
+        }
+    </script>
+</body>
+</html>

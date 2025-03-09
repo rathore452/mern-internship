@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Form</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-800 flex justify-center items-center">
+
+    <div class="bg-gray-800 border-2 border-blue-600 shadow-blue-400 p-8 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-4xl font-bold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 ">Add a Question</h1>
+
+        <!-- Input fields -->
+        <input type="text" id="question" placeholder="Enter your question" class="w-full bg-gray-700  text-white placeholder:text-gray-400 p-3 mb-4 border-2 border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" id="op1" placeholder="Option 1" class="w-full p-3 mb-4 border-2 bg-gray-700 text-white placeholder:text-gray-400 border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" id="op2" placeholder="Option 2" class="w-full p-3 mb-4 border-2 bg-gray-700 text-white placeholder:text-gray-400 border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" id="op3" placeholder="Option 3" class="w-full p-3 mb-4 border-2 bg-gray-700 text-white border-gray-600 placeholder:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" id="op4" placeholder="Option 4" class="w-full p-3 mb-4 border-2 bg-gray-700 text-white border-gray-600 placeholder:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" id="ans" placeholder="Enter the correct answer" class="w-full p-3 bg-gray-700 text-white mb-6 border-2 placeholder:text-gray-400 border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+        <!-- Add Question Button -->
+        <button onclick="addquestion()" class="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition">Add Question</button>
+        <h1 class="text-white text-3xl mt-6 pl-2">List of questions :</h1>
+        <!-- Display Questions -->
+        <div id="questiondata" class="mt-6 space-y-4">
+        </div>
+        
+    </div>
+  
+    <script>
+        var listofquestion = JSON.parse(localStorage.getItem("question")) ?? [];
+
+        function addquestion() {
+            var question = document.getElementById("question").value;
+            var op1 = document.getElementById("op1").value;
+            var op2 = document.getElementById("op2").value;
+            var op3 = document.getElementById("op3").value;
+            var op4 = document.getElementById("op4").value;
+            var ans = document.getElementById("ans").value;
+
+            var questionobj = {
+                ques: question,
+                op1: op1,
+                op2: op2,
+                op3: op3,
+                op4: op4,
+                ans: ans
+            };
+
+            listofquestion.push(questionobj);
+            localStorage.setItem("question", JSON.stringify(listofquestion));
+            displayQuestions();
+        }
+
+        function displayQuestions() {
+            var data = JSON.parse(localStorage.getItem("question"));
+            document.getElementById("questiondata").innerHTML = data.map((student, i) => `
+                <div class="bg-gray-700  p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold text-gray-50 mb-3">Q${i + 1}: ${student.ques}</h2>
+                    <ul class="space-y-2 text-gray-50 text-lg">
+                        <li>1. ${student.op1}</li>
+                        <li>2. ${student.op2}</li>
+                        <li>3. ${student.op3}</li>
+                        <li>4. ${student.op4}</li>
+                    </ul>
+                    <p class="mt-3 text-lg font-medium text-white">Answer:<span class="text-white text-xl"> ${student.ans}</span></p>
+                </div>
+            `).join('');
+        }
+
+        window.onload = displayQuestions;
+    </script>
+
+</body>
+</html>

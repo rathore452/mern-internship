@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 font-sans flex items-center justify-center min-h-screen ">
+          
+    <div class="bg-gray-800  shadow-xl shadow-blue-600 rounded-lg   border-2 border-blue-600  w-full max-w-lg p-12">
+       
+        <h1 class="text-2xl font-semibold mb-6 text-white p-" >Q. <span id="q.no" class="text-2xl text-white"></span> <span id="que" class="text-2xl text-white"></span></h1>
+        
+        <div class="space-y-4">
+            <label class="flex items-center space-x-2">
+                <input type="radio" name="options" id="option1" onclick="checkAnswer()" class="form-radio text-blue-500">
+                <span id="op1" class="text-2xl text-white"></span>
+            </label>
+
+            <label class="flex items-center space-x-2">
+                <input type="radio" name="options" id="option2" onclick="checkAnswer()" class="form-radio text-blue-500">
+                <span id="op2" class="text-2xl text-white"></span>
+            </label>
+
+            <label class="flex items-center space-x-2">
+                <input type="radio" name="options" id="option3" onclick="checkAnswer()" class="form-radio text-blue-500">
+                <span id="op3" class="text-2xl text-white"></span>
+            </label>
+
+            <label class="flex items-center space-x-2">
+                <input type="radio" name="options" id="option4" onclick="checkAnswer()" class="form-radio text-blue-500">
+                <span id="op4" class="text-2xl text-white"></span>
+            </label>
+        </div>
+
+        <button onclick="next()" class="w-full bg-blue-500 text-white py-2 rounded-lg mt-8 hover:bg-blue-600 transition">Next</button>
+
+        <div id="result" class="mt-4 text-center hidden">
+           
+            <h2 class="text-2xl text-white ">Your Score: <span id="final-score" class="text-2xl text-white"></span></h2>
+        </div>
+    </div>
+
+    <script>
+        var listOfQuestions = JSON.parse(localStorage.getItem("question"));
+        var currentIndex = 0;
+        var score = 0;
+
+        setQuestion();
+
+        function setQuestion() {
+            var question = listOfQuestions[currentIndex];
+            document.getElementById('q.no').innerHTML = currentIndex + 1;
+            document.getElementById('que').innerHTML = question.ques;
+            document.getElementById('op1').innerHTML = question.op1;
+            document.getElementById('op2').innerHTML = question.op2;
+            document.getElementById('op3').innerHTML = question.op3;
+            document.getElementById('op4').innerHTML = question.op4;
+        }
+
+        function next() {
+            if (currentIndex < listOfQuestions.length - 1) {
+                currentIndex++;
+                setQuestion();
+                resetRadioButtons();
+            } else {
+                document.getElementById("result").classList.remove("hidden");
+                document.getElementById("final-score").innerHTML = score;
+                document.body.innerHTML = "<h1 class='text-center text-2xl font-bold text-white'>Congratulation <br> Your score is: " + score + "</h1>";
+                alert("No more questions. Your score is " + score);
+            }
+        }
+
+        function checkAnswer() {
+            var selectedOption = document.querySelector('input[name="options"]:checked');
+            if (selectedOption) {
+                var answerValue = selectedOption.nextElementSibling.innerHTML;
+                if (answerValue === listOfQuestions[currentIndex].ans) {
+                    score++;
+                }
+            }
+        }
+
+        function resetRadioButtons() {
+            var radios = document.getElementsByName("options");
+            radios.forEach(function(radio) {
+                radio.checked = false;
+            });
+        }
+    </script>
+</body>
+</html>

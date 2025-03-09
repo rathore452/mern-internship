@@ -1,34 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="task.html">Task</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class=" text-black p-4 right-0 bg-slate-900  flex justify-between  z-0 top-0 left-0  items-center  ">
+    <nav class="container flex justify-between items-center">
+      <h1 class="text-4xl font-bold">My Portfolio</h1>
+      <ul class="flex space-x-4 text-lg">
+        <li><a href="#home" class="hover:text-blue-600 font-medium">Home</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#tasks" class="hover:underline">Tasks</a></li>
+        <li><a href="#projects" class="hover:underline">Projects</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="">
     <section id="home">
-        <div class="hero">
-            <h1>Hello, I am Harsh Rathore</h1>
-            <p>Web Developer</p>
-            <button onclick="scrollToSection('about')">Learn More</button>
+      <div class="flex justify-evenly w-screen h-screen  pt-32">
+        <div class="mt-32">
+          <h2 class="text-2xl ">Hello,Myself</h2>
+          <h1 class="text-5xl font-bold   ">Harsh Rathore</h1>
+          <h3 class="text-3xl pt-2 "> And I'm a <span class=" font-bold text-slate-500">Full stack developer</span></h3>
+          <p class="pt-4 text-xl ">Welcome to my portfolio! Here you can find information about me,<br>
+            my tasks, projects, and how to contact me.</p>
+          <a href="#" class="  ">
+            <h1 class="w-36 h-8 mt-4 pl-2 bg-slate-700 text-xl rounded-2xl text-white">Download CV</h1>
+          </a>
         </div>
+        <div>
+          <img src="harsh.jpg" alt="" class="h-96 w-96 shadow-lg mt-12 rounded-full">
         </div>
+      </div>
     </section>
 
-    
+    <section id="about" class="">
+      <div class="flex justify-evenly w-screen h-screen  pt-32">
+        <div class="">
+          <img src="harsh.jpg" alt="" class="h-96 w-80 shadow-lg border-4 border-slate-600">
+        </div>
+        <div>
+          <h2 class="text-5xl font-bold mb-2 text-black">About <span class="text-slate-400">Me</span></h2>
+          <h1 class="text-slate-500 text-3xl ">Full stack developer</h1>
+          <p class="pt-4 text-black text-xl">Hi, I'm a web developer ith experience in building responsive and
+            <br>interactive websites using modern technologies.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tasks" class=" w-auto h-auto pb-12">
+      <h2 class="text-4xl font-bold mb-8 pt-10 text-slate-500 text-center">Tasks</h2>
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-2 ">
+        <a href="design.html">
+          <div class="bg-white p-4 rounded shadow  text-center">
+            <div>
+              <h3 class="text-xl font-bold mb-2">Task 1</h3>
+              <p>Design.</p>
+            </div>
+          </div>
+        </a>
+        <a href="layout.html">
+          <div>
+            <div class="bg-white p-4 rounded shadow text-center">
+              <h3 class="text-xl font-bold mb-2">Task 2</h3>
+              <p> Layout.</p>
+            </div>
+          </div>
+        </a>
+        <a href="pralee.html">
+          <div>
+            <div class="bg-white p-4 rounded shadow text-center">
+              <h3 class="text-xl font-bold mb-2">Task 3</h3>
+              <p>parlee technology website.</p>
+            </div>
+          </div>
+        </a>
+        <div>
+          <a href="sum.html">
+          <div class="bg-white p-4 rounded shadow  text-center">
+            <h3 class="text-xl font-bold mb-2">Task 4</h3>
+            <p>Simple Calculater</p>
+          </div>
+        </div></a>
+        <a href="studentserch.html">
+          <div>
+            <div class="bg-white p-4 rounded shadow text-center">
+              <h3 class="text-xl font-bold mb-2">Task 5</h3>
+              <p>Student search filter.</p>
+            </div>
+          </div>
+        </a>
+        <a href="login.html">
+          <div>
+            <div class="bg-white p-4 rounded shadow text-center">
+              <h3 class="text-xl font-bold mb-2">Task 6</h3>
+              <p>Login page</p>
+            </div>
+          </div>
+        </a>
+        <a href="resistration.html">
+          <div>
+            <div class="bg-white p-4 rounded shadow text-center">
+              <h3 class="text-xl font-bold mb-2">Task 7</h3>
+              <p>Resistration.</p>
+            </div>
+          </div>
+        </a>
+        <a href="question.html">
+          <div>
+            <div class="bg-white p-4 rounded shadow text-center">
+              <h3 class="text-xl font-bold mb-2">Task 8</h3>
+              <p>Add question.</p>
+            </div>
+          </div>
+        </a>
+        <a href="start.html">
+          <div>
+            <div class="bg-white p-4 rounded shadow text-center">
+              <h3 class="text-xl font-bold mb-2">Task 9</h3>
+              <p>startquiz.</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+      </div>
+    </section>
+
+
+    <section id="projects" class="h-auto w-screen pb-10 p-10">
+      <h2 class="text-4xl font-bold mb-4 text-slate-500 pt-10 pb-10 text-center">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="text-xl font-bold mb-2">Project 1</h3>
+          <p>A description of project 1.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="text-xl font-bold mb-2">Project 2</h3>
+          <p>A description of project 2.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="text-xl font-bold mb-2">Project 3</h3>
+          <p>A description of project 3.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="text-xl font-bold mb-2">Project 3</h3>
+          <p>A description of project 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class=" flex items-center justify-center h-screen">
+        <div class=" p-8 rounded-lg shadow-lg w-full max-w-md border ">
+          <h2 class="text-4xl font-bold mb-6 text-slate-500 text-center">Contact Me</h2>
+          <form action="#" method="POST">
+            <div class="mb-4">
+              <label for="name" class="block text-gray-700">Name</label>
+              <input type="text" id="name" name="name"
+                class="w-full px-3 py-2 border border-slate-500 rounded-lg focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700">Email</label>
+              <input type="email" id="email" name="email"
+                class="w-full px-3 py-2 border border-slate-500 rounded-lg focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label for="message" class="block text-gray-700">Message</label>
+              <textarea id="message" name="message" rows="4"
+                class="w-full px-3 py-2 border border-slate-500 rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full bg-slate-500 text-white py-2 rounded-lg hover:bg-slate-700 focus:outline-none focus:bg-blue-600">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black text-white p-4 text-center">
+    <p>&copy; 2025 by harshrathore</p>
+  </footer>
 </body>
+
 </html>

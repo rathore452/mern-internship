@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(12, 12, 172);
+    background-color: gray;
 }
 header{ 
      height:60px;
@@ -28,7 +28,7 @@ header h1{
     border:3px solid black;
 }
 .head{
-    margin-top:50px;
+    margin-top:70px;
     justify-content: center;
     align-items:center ;
     display: flex;
@@ -50,7 +50,7 @@ hr{
     border:2px solid rgb(68, 0, 255);
     background-color: bisque;
   
-    border-radius: 2px;
+    border-radius: 10px;
     
 }
 .box1:hover{
@@ -63,7 +63,7 @@ hr{
    margin-top:35px;
 }
 .food{
-    margin-top: 52px;
+    margin-top: 130px;
     background-color: black;
     align-items: center;
     justify-content: center;

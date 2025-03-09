@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Login</title>
+</head>
+<body class="bg-gray-900 flex justify-center items-center min-h-screen">
+
+    <div class="bg-gray-800 border border-blue-600 shadow-lg shadow-indigo-600 rounded-2xl p-8 max-w-md w-full">
+        <h1 class="text-3xl font-bold text-center text-white mb-6">Login </h1>
+
+        <!-- Username Field -->
+        <label for="username" class="block text-white font-semibold mb-2">Username</label>
+        <input type="text" id="username" class="w-full text-white px-4 py-2 border border-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-700" placeholder="Enter your username" required>
+        
+        <!-- Password Field -->
+        <label for="password" class="block text-white font-semibold mt-4 mb-2">Password</label>
+        <input type="password" id="password" class="w-full text-white px-4 py-2 border border-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-700" placeholder="Enter your password" required>
+        
+        <!-- Login Type Selection -->
+        <h3 class="text-white font-semibold mt-6">Login Type</h3>
+        <div class="flex gap-4 mt-2">
+            <label class="text-white"><input type="radio" name="role" id="admin"> Admin</label>
+            <label class="text-white"><input type="radio" name="role" id="user"> User</label>
+        </div>
+
+        <!-- Login Button -->
+        <button onclick="login()" class="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 mt-6 rounded-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-400">
+            Login
+        </button>
+
+        <!-- Error Message -->
+        <p id="error" class="text-red-500 text-center mt-4 hidden"></p>
+
+        <!-- Sign-Up Link -->
+        <p class="text-center text-gray-400 mt-4">Don't have an account? <a href="resistration.html" class="text-blue-400 hover:underline">Sign Up</a></p>
+    </div>
+
+    <script>
+        function login() {
+            let data = JSON.parse(localStorage.getItem("registerInfo")) || [];
+            let username = document.getElementById("username").value.toLowerCase();
+            let password = document.getElementById("password").value;
+            let errorElement = document.getElementById("error");
+
+            // Get selected role
+            let role = document.querySelector('input[name="role"]:checked');
+            if (!role) {
+                errorElement.textContent = "Please select a login type.";
+                errorElement.classList.remove("hidden");
+                return;
+            }
+            role = role.id;
+
+            // Check if user exists
+            let userFound = data.find(user => user.username.toLowerCase() === username && user.password === password && user.role === role);
+
+            if (userFound) {
+                errorElement.classList.add("hidden");
+                // Redirect based on role
+                if (role === "admin") {
+                    alert("Admin login successful");
+                    window.location.href = "question.html.html"; // Redirect to admin dashboard
+                } else {
+                    alert("User login successful");
+                    window.location.href = "start.html"; // Redirect to user dashboard
+                }
+            } else {
+                errorElement.textContent = "Invalid username, password, or role.";
+                errorElement.classList.remove("hidden");
+            }
+        }
+    </script>
+
+</body>
+</html>
